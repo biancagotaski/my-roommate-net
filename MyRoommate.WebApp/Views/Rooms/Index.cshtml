@@ -18,6 +18,9 @@
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Photo)
         </th>
         <th>
@@ -35,15 +38,22 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            <img src="@item.Photo" style="max-width:300px;height:auto;" />
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            <img src="@item.Photo" style="max-width:300px;height:auto"/>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Price)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @if (item.PublisherId == ViewBag.UserId)
+            {
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) <text>|</text>
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }) <text>|</text>
+            }
+            @Html.ActionLink("Details", "Details", new { id = item.Id })
+
         </td>
     </tr>
 }
