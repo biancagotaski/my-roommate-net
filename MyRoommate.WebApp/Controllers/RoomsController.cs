@@ -6,12 +6,12 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using MyRoommate.DataAccess.Contexts;
 using MyRoommate.Domain.Model;
 
 namespace MyRoommate.WebApp.Controllers
 {
-    //[Authorize(Roles ="admin")]
     public class RoomsController : Controller
     {
         private MyRoommateContext db = new MyRoommateContext();
@@ -19,6 +19,8 @@ namespace MyRoommate.WebApp.Controllers
         // GET: Rooms
         public ActionResult Index()
         {
+            if (User != null && User.Identity != null && !String.IsNullOrEmpty(User.Identity.GetUserId()))
+                ViewBag.UserId = User.Identity.GetUserId();
             return View(db.Rooms.ToList());
         }
 
@@ -38,6 +40,7 @@ namespace MyRoommate.WebApp.Controllers
         }
 
         // GET: Rooms/Create
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -48,11 +51,13 @@ namespace MyRoommate.WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Description,Photo,Price")] Room room)
+        [Authorize]
+        public ActionResult Create([Bind(Include = "Id,PublisherId,Title,Description,Address,Photo,Price")] Room room)
         {
             if (ModelState.IsValid)
             {
                 room.Id = Guid.NewGuid();
+                room.PublisherId = User.Identity.GetUserId();
                 db.Rooms.Add(room);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -62,6 +67,7 @@ namespace MyRoommate.WebApp.Controllers
         }
 
         // GET: Rooms/Edit/5
+        [Authorize]
         public ActionResult Edit(Guid? id)
         {
             if (id == null)
@@ -73,6 +79,9 @@ namespace MyRoommate.WebApp.Controllers
             {
                 return HttpNotFound();
             }
+            if (room.PublisherId != User.Identity.GetUserId())
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
             return View(room);
         }
 
@@ -81,7 +90,8 @@ namespace MyRoommate.WebApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Description,Photo,Price")] Room room)
+        [Authorize]
+        public ActionResult Edit([Bind(Include = "Id,PublisherId,Title,Description,Address,Photo,Price")] Room room)
         {
             if (ModelState.IsValid)
             {
@@ -89,6 +99,8 @@ namespace MyRoommate.WebApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            if (room.PublisherId != User.Identity.GetUserId())
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             return View(room);
         }
 

@@ -3,6 +3,17 @@
 /packages
 /bin
 /obj
+/package-lock.json
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
 
 # Mono auto generated files
 mono_crash.*
@@ -24,6 +35,11 @@ bld/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
+# Uncomment if you have tasks that create the project's static files in wwwroot
+#wwwroot/
+
+# Visual Studio 2017 auto generated files
+Generated\ Files/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -41,6 +57,11 @@ dlldata.c
 
 # Benchmark Results
 BenchmarkDotNet.Artifacts/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
 
 # StyleCop
 StyleCopReport.xml
@@ -77,16 +98,36 @@ StyleCopReport.xml
 # Chutzpah Test files
 _Chutzpah*
 
+# Visual C++ cache files
+ipch/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# Visual Studio Trace Files
+*.e2e
+
 # TFS 2012 Local Workspace
 $tf/
+
+# Guidance Automation Toolkit
+*.gpState
 
 # ReSharper is a .NET coding add-in
 _ReSharper*/
 *.[Rr]e[Ss]harper
 *.DotSettings.user
-
-# Guidance Automation Toolkit
-*.gpState
 
 # TeamCity is a build add-in
 _TeamCity*
@@ -193,6 +234,14 @@ ClientBin/
 *.pfx
 *.publishsettings
 orleans.codegen.cs
+
+# Including strong name files can present a security risk
+# (https://github.com/github/gitignore/pull/2483#issue-259490424)
+#*.snk
+
+# Since there are multiple workflows, uncomment next line to ignore bower_components
+# (https://github.com/github/gitignore/pull/1529#issuecomment-104372622)
+#bower_components/
 
 # RIA/Silverlight projects
 Generated_Code/
