@@ -4,11 +4,11 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Quartos disponíveis</h2>
+<h3>Quartos disponíveis</h3>
 
 @foreach (var item in Model) {
-    <div class="card-row">
-        <div class="card-column">
+    <div class="grid-container">
+        <div class="grid-item">
             <div class="card">
                 <img src="@item.Photo" alt="Room" style="width:100%" />
                 <div class="container-card">
