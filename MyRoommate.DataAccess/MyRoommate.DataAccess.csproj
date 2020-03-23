@@ -51,17 +51,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexts\MyRoommateContext.cs" />
-    <Compile Include="Migrations\202002240344079_InitialCreate.cs" />
-    <Compile Include="Migrations\202002240344079_InitialCreate.Designer.cs">
-      <DependentUpon>202002240344079_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202003230202332_init.cs" />
+    <Compile Include="Migrations\202003230202332_init.Designer.cs">
+      <DependentUpon>202003230202332_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202002251337432_init.cs" />
-    <Compile Include="Migrations\202002251337432_init.Designer.cs">
-      <DependentUpon>202002251337432_init.cs</DependentUpon>
+    <Compile Include="Migrations\202003230210500_added_messages.cs" />
+    <Compile Include="Migrations\202003230210500_added_messages.Designer.cs">
+      <DependentUpon>202003230210500_added_messages.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202002251409369_changed_publisherId_to_string.cs" />
-    <Compile Include="Migrations\202002251409369_changed_publisherId_to_string.Designer.cs">
-      <DependentUpon>202002251409369_changed_publisherId_to_string.cs</DependentUpon>
+    <Compile Include="Migrations\202003230211326_added_messages2.cs" />
+    <Compile Include="Migrations\202003230211326_added_messages2.Designer.cs">
+      <DependentUpon>202003230211326_added_messages2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003230236025_changed_message_to_roomid.cs" />
+    <Compile Include="Migrations\202003230236025_changed_message_to_roomid.Designer.cs">
+      <DependentUpon>202003230236025_changed_message_to_roomid.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,14 +81,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202002240344079_InitialCreate.resx">
-      <DependentUpon>202002240344079_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003230202332_init.resx">
+      <DependentUpon>202003230202332_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002251337432_init.resx">
-      <DependentUpon>202002251337432_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003230210500_added_messages.resx">
+      <DependentUpon>202003230210500_added_messages.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002251409369_changed_publisherId_to_string.resx">
-      <DependentUpon>202002251409369_changed_publisherId_to_string.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003230211326_added_messages2.resx">
+      <DependentUpon>202003230211326_added_messages2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003230236025_changed_message_to_roomid.resx">
+      <DependentUpon>202003230236025_changed_message_to_roomid.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -7,13 +7,13 @@ namespace MyRoommate.DataAccess.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class changed_publisherId_to_string : IMigrationMetadata
+    public sealed partial class added_messages : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(changed_publisherId_to_string));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(added_messages));
         
         string IMigrationMetadata.Id
         {
-            get { return "202002251409369_changed_publisherId_to_string"; }
+            get { return "202003230210500_added_messages"; }
         }
         
         string IMigrationMetadata.Source

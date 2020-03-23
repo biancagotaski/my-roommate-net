@@ -6,10 +6,11 @@
         <img class="img-rental" src="https://www.casita.com/assets/images/Bridge%20street%20exchange.jpg" />
         <h2>Onde você encontra locais mais bem avaliados para morar</h2>
         <div class="search-container">
-            <form action="">
-                <input type="text" placeholder="Buscar" name="search">
+            @using (Html.BeginForm("Index", "Rooms",FormMethod.Get))
+            {
+                <input type="text" placeholder="Buscar" name="searchTerm">
                 <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
+            }
         </div>
-        <p>@Html.ActionLink("Ver quartos disponíveis", "Index", "Rooms", new { @class = "rooms-available" })</p>
+        <p>@Html.ActionLink("Ver quartos disponíveis", "Index", "Rooms", null, new { @class = "rooms-available" })</p>
     </div>

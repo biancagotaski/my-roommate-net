@@ -10,7 +10,6 @@ namespace MyRoommate.DataAccess.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "MyRoommate.DataAccess.Contexts.MyRoommateContext";
         }
 
         protected override void Seed(MyRoommate.DataAccess.Contexts.MyRoommateContext context)
