@@ -4,10 +4,10 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Descrições</h2>
 
 <div>
-    <h4>Room</h4>
+    <h4>Quarto</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -51,7 +51,8 @@
         </dd>
 
     </dl>
+    @Html.ActionLink("Entrar em contato", "Create", "Messages", new { roomId=Model.Id }, null )
 </div>
 <p>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Voltar para anúncios", "Index")
 </p>

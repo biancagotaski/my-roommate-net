@@ -4,58 +4,28 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Photo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th></th>
-    </tr>
+<h3>Quartos disponíveis</h3>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            <img src="@item.Photo" style="max-width:300px;height:auto"/>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @if (item.PublisherId == ViewBag.UserId)
-            {
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) <text>|</text>
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id }) <text>|</text>
-            }
-            @Html.ActionLink("Details", "Details", new { id = item.Id })
-
-        </td>
-    </tr>
+    <div class="grid-container">
+        <div class="grid-item">
+            <div class="card">
+                <img src="@item.Photo" alt="Room" style="width:100%" />
+                <div class="container-card">
+                    <h4><b>@Html.DisplayFor(modelItem => item.Title)</b></h4>
+                    <p><b>@Html.DisplayFor(modelItem => item.Description)</b></p>
+                    <p><b>@Html.DisplayFor(modelItem => item.Address)</b></p>
+                    <p><b>@Html.DisplayFor(modelItem => item.Price)</b></p>
+                    <p>
+                        @if (item.PublisherId == ViewBag.UserId)
+                        {
+                            @Html.ActionLink("Editar", "Edit", new { id = item.Id }) <text>|</text>
+                            @Html.ActionLink("Excluir", "Delete", new { id = item.Id }) <text>|</text>
+                        }
+                        @Html.ActionLink("Mais detalhes", "Details", new { id = item.Id })
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 }
-
-</table>
