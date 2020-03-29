@@ -51,6 +51,7 @@
         </dd>
 
     </dl>
+    @Html.ActionLink("Ver Mensagens trocadas", "Index", "Messages", new { roomId=Model.Id }, null ) | 
     @Html.ActionLink("Entrar em contato", "Create", "Messages", new { roomId=Model.Id }, null )
 </div>
 <p>

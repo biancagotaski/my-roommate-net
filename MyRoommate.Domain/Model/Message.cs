@@ -11,6 +11,7 @@ namespace MyRoommate.Domain.Model
         public Guid Id { get; set; }
         public Guid RoomId { get; set; }
         public String SenderId { get; set; }
+        public String RecipientId { get; set; }
         public String Content { get; set; }
         public DateTime Timestamp { get; set; }
     }

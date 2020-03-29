@@ -67,6 +67,10 @@
     <Compile Include="Migrations\202003230236025_changed_message_to_roomid.Designer.cs">
       <DependentUpon>202003230236025_changed_message_to_roomid.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003272030316_added_recipientId.cs" />
+    <Compile Include="Migrations\202003272030316_added_recipientId.Designer.cs">
+      <DependentUpon>202003272030316_added_recipientId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -92,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003230236025_changed_message_to_roomid.resx">
       <DependentUpon>202003230236025_changed_message_to_roomid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003272030316_added_recipientId.resx">
+      <DependentUpon>202003272030316_added_recipientId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

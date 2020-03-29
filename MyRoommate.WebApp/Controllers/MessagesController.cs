@@ -17,9 +17,23 @@ namespace MyRoommate.WebApp.Controllers
         private MyRoommateContext db = new MyRoommateContext();
 
         // GET: Messages
-        public ActionResult Index()
+        public ActionResult Index(String roomId)
         {
-            return View(db.Messages.ToList());
+            var myUserId = User.Identity.GetUserId();
+
+            //Mensagens de um Quarto Específico
+            if (roomId != null)
+            {
+                var roomFilteredMessages = db.Messages.Where(m => m.RoomId.ToString().Equals(roomId) &&
+                    (m.SenderId.Equals(myUserId) || (m.RecipientId == null ? false : m.RecipientId.Equals(myUserId))))
+                    .OrderBy(m => m.Timestamp).ToList();
+                return View(roomFilteredMessages);
+            }
+
+            //Mensagens Enviadas para Você
+            var myFilteredMessages = db.Messages.Where(m => (m.SenderId.Equals(myUserId) || (m.RecipientId == null ? false : m.RecipientId.Equals(myUserId))))
+                .OrderBy(m => m.Timestamp).ToList();
+            return View(myFilteredMessages);
         }
 
         // GET: Messages/Details/5
